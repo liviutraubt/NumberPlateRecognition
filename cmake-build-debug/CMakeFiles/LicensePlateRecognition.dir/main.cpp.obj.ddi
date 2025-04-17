@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\LicensePlateRecognition.dir\\main.cpp.obj",
+            "outputs": [
+                "D:\\UTCN\\An 3\\Sem 2\\PI\\Proiect\\LicensePlateRecognition\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\LicensePlateRecognition.dir\\main.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+# ninja log v6
+2	185	7665723232944249	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+194	209	7665723234993272	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	7aa8e02b12fd00fb
+194	209	7665723234993272	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	7aa8e02b12fd00fb
+194	209	7665723234993272	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	7aa8e02b12fd00fb
+209	2473	7665723235013257	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+2473	2691	7665723257655700	LicensePlateRecognition.exe	acde74a0a34906c2
