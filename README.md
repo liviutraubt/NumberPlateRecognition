@@ -1,27 +1,29 @@
-🚗 Number Plate Recognition with OpenCV
-This project is the final assignment for my Image Processing class. It is a simple and effective number plate recognition system built using C++ and OpenCV. The application processes input images to detect and extract number plates from vehicles.
+# 🚗 Number Plate Recognition with OpenCV
 
-📷 Features
-Load and process vehicle images
+This project is the final assignment for my Image Processing class. It is a simple and effective number plate recognition system built using **C++** and **OpenCV**. The application processes input images to detect and extract number plates from vehicles.
 
-Detect number plates using image processing techniques
+## 📷 Features
 
-Extract and highlight the detected plate region
+- Load and process vehicle images
+- Detect number plates using image processing techniques
+- Extract and highlight the detected plate region
+- Prepares region of interest (ROI) for further OCR (not included)
 
-Prepares region of interest (ROI) for further OCR (not included)
+## 🔧 Technologies
 
-🔧 Technologies
-C++
+- **C++**
+- **OpenCV** (image preprocessing, contour detection, etc.)
 
-OpenCV (image preprocessing, contour detection, etc.)
+## 🧠 Techniques Used
 
-🧠 Techniques Used
-Grayscale conversion
+- Grayscale conversion
+- Noise reduction and edge detection (Gaussian blur, Canny)
+- Morphological operations
+- Contour detection and filtering
+- Plate region extraction based on aspect ratio and size
 
-Noise reduction and edge detection (Gaussian blur, Canny)
+## 📁 How to Use
 
-Morphological operations
-
-Contour detection and filtering
-
-Plate region extraction based on aspect ratio and size
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/number-plate-recognition-opencv.git
