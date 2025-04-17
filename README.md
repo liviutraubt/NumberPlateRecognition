@@ -21,9 +21,3 @@ This project is the final assignment for my Image Processing class. It is a simp
 - Morphological operations
 - Contour detection and filtering
 - Plate region extraction based on aspect ratio and size
-
-## 📁 How to Use
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/number-plate-recognition-opencv.git
