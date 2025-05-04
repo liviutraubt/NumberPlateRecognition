@@ -1,4 +1,5 @@
 #include <iostream>
+#include "src/functions.h"
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -10,16 +11,18 @@ int main() {
     Mat source = imread("images/test.jpeg");
 
     // 2. Convertim în grayscale și păstrăm o mască albastră pentru bara din stânga
-    Mat gray, blue_mask;
-    vector<Mat> channels;
-    split(source, channels);  // B, G, R
+    Mat gray = convertToGrayscale(source), blue_mask = extractBlueMask(source);
+    // vector<Mat> channels;
+    // split(source, channels);  // B, G, R
+    //
+    // // mască: albastru semnificativ mai intens decât celelalte
+    // Mat condition1 = channels[0] > channels[1] + 30;
+    // Mat condition2 = channels[0] > channels[2] + 30;
+    // bitwise_and(condition1, condition2, blue_mask);
+    //
+    // cvtColor(source, gray, COLOR_BGR2GRAY);
 
-    // mască: albastru semnificativ mai intens decât celelalte
-    Mat condition1 = channels[0] > channels[1] + 30;
-    Mat condition2 = channels[0] > channels[2] + 30;
-    bitwise_and(condition1, condition2, blue_mask);
 
-    cvtColor(source, gray, COLOR_BGR2GRAY);
 
     // 3. Aplicăm sharpening
     Mat sharpened;
