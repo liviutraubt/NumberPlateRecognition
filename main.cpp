@@ -25,12 +25,8 @@ int main() {
 
 
     // 3. Aplicăm sharpening
-    Mat sharpened;
-    Mat kernel = (Mat_<float>(3, 3) <<
-        0, -1, 0,
-       -1, 5, -1,
-        0, -1, 0);
-    filter2D(gray, sharpened, CV_8U, kernel);
+    Mat sharpened = convolution(gray, kernel);
+    //filter2D(gray, sharpened, CV_8U, kernel);
 
     // 4. Aplicăm filtru median
     Mat medianed;
