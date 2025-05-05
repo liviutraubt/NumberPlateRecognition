@@ -51,5 +51,6 @@ int* compute_histogram_naive(Mat source);
 Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh);
 Point find_P_0(Mat source);
 contour extract_contour(Mat source, Point P_0);
+vector<contour> extract_all_contours(Mat source);
 
 #endif

@@ -234,32 +234,81 @@ Point find_P_0(Mat source) {
     return P_0;
 }
 
-contour extract_contour(Mat source, Point P_0) {
+contour extract_contour(Mat source, Point P_0){
+
+    /*Extract the contour for a neighborhood of 8. You should return a contour structure with a vector
+     * containing the point and a vector containing the directions. */
+
     int dir;
     Point P_current;
     vector<Point> border;
     vector<int> dir_vector;
 
+    //*****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+
     dir = 7;
     border.push_back(P_0);
     P_current = P_0;
-    do {
-        if (dir % 2 == 0) {
+    do{
+        if(dir % 2 == 0){
             dir = (dir + 7) % 8;
-        } else {
+        }
+        else{
             dir = (dir + 6) % 8;
         }
 
-        while (IsInside(source, P_current.y + n8_di[dir], P_current.x + n8_dj[dir]) &&
-               source.at<uchar>(P_current.y + n8_di[dir], P_current.x + n8_dj[dir]) == 255) {
+        while(source.at<uchar>(P_current.y + n8_di[dir], P_current.x + n8_dj[dir]) == 255){
             dir = (dir + 1) % 8;
-               }
+        }
         dir_vector.push_back(dir);
         P_current.x += n8_dj[dir];
         P_current.y += n8_di[dir];
         border.push_back(P_current);
 
-    } while (!((P_current == border[1]) && (border[border.size() - 2] == P_0) && (border.size() > 2)));
+    } while (!((P_current == border[1]) && (border[border.size()-2] == P_0) && (border.size() > 2)));
+
+    //*****END OF YOUR CODE(DO NOT DELETE / MODIFY THIS LINE) *****
 
     return {border, dir_vector};
+}
+
+vector<contour> extract_all_contours(Mat source) {
+    Mat copy = source.clone();
+    vector<contour> all_contours;
+
+    int rows = copy.rows;
+    int cols = copy.cols;
+
+    // Vizitați: reține care pixeli au fost procesați deja
+    Mat visited = Mat(rows, cols, CV_8UC1, Scalar(0)); // 0 = never visited
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            if (copy.at<uchar>(i, j) == 0 && visited.at<uchar>(i, j) == 0) {
+                Point P0(j, i);
+                contour c = extract_contour(copy, P0);
+
+                if (c.border.size() < 5) {
+                    if (IsInside(copy, P0.y, P0.x)) {
+                        visited.at<uchar>(P0.y, P0.x) = 1;
+                        copy.at<uchar>(P0.y, P0.x) = 255;
+                    }
+                    continue;
+                }
+
+                for (const Point& p : c.border) {
+                    if (IsInside(copy, p.y, p.x)) {
+                        visited.at<uchar>(p.y, p.x) = 1;
+                        copy.at<uchar>(p.y, p.x) = 255;
+                    }
+                }
+
+                all_contours.push_back(c);
+                cout << "Contur #" << all_contours.size() << " extras ("
+                     << c.border.size() << " puncte)\n";
+            }
+        }
+    }
+
+    return all_contours;
 }

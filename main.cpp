@@ -29,29 +29,39 @@ int main() {
     Mat edges = cannyEdgeDetection(binary, 50, 150);
 
     // 7. Contururi
-    Point P_0 = find_P_0(edges);
-    contour cnt = extract_contour(edges, P_0);
-    // vector<vector<Point>> contours;
-    // findContours(edges, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+    vector<contour> contours = extract_all_contours(edges);
 
     // 8. Detectare placuțe dupa aspect ratio si dimensiune
     Mat result = source.clone();
-    // for (const auto& contour : contours) {
-    //     Rect rect = boundingRect(contour);
-    //     double aspect = (double)rect.width / rect.height;
-    //
-    //     if (aspect > 4.0 && aspect < 5.2 && rect.area() > 3000) {
-    //
-    //         // Define a region to the left of the rectangle
-    //         Rect leftRegion(max(0, rect.x - rect.width), rect.y, rect.width, rect.height);
-    //
-    //         // Check if there are any non-zero pixels in the blue_mask within the left region
-    //         Mat leftROI = blue_mask(leftRegion);
-    //         if (countNonZero(leftROI) > 0) {
-    //             rectangle(result, rect, Scalar(0, 255, 0), 4);
-    //         }
-    //     }
-    // }
+
+    for (const auto& custom_contour : contours) {
+        const vector<Point>& border_points = custom_contour.border;
+
+        if (border_points.size() < 5) continue;
+
+        Rect rect = boundingRect(border_points);
+        if (rect.x < 0 || rect.y < 0 ||
+            rect.x + rect.width > source.cols ||
+            rect.y + rect.height > source.rows) {
+            continue;
+            }
+
+        double aspect = (double)rect.width / rect.height;
+        if (aspect < 4.0 || aspect > 5.2 || rect.area() < 3000) {
+            continue;
+        }
+
+        Rect leftRegion(max(0, rect.x - rect.width), rect.y, rect.width, rect.height);
+        if (leftRegion.x >= 0 && leftRegion.y >= 0 &&
+            leftRegion.x + leftRegion.width <= blue_mask.cols &&
+            leftRegion.y + leftRegion.height <= blue_mask.rows) {
+                Mat leftROI = blue_mask(leftRegion);
+                if (countNonZero(leftROI) > 0) {
+                    rectangle(result, rect, Scalar(0, 255, 0), 4);
+                }
+            }
+
+    }
 
     // Afisare rezultate intermediare
     namedWindow("Original", WINDOW_NORMAL);
