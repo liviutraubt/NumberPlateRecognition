@@ -82,3 +82,92 @@ Mat convolution(Mat source, Mat kernel){
 
     return result;
 }
+
+int* compute_histogram_naive(Mat source){
+    int* histogram = (int*)calloc(256, sizeof(int));
+
+    int rows = source.rows, cols = source.cols;
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            histogram[source.at<uchar>(i, j)]++;
+        }
+    }
+
+    return histogram;
+}
+
+edge_image_values compute_edge_values(Mat source){
+    int min = 255, max = 0;
+
+    int rows = source.rows, cols = source.cols;
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            int pixel_value = source.at<uchar>(i, j);
+            if(pixel_value < min)
+                min = pixel_value;
+            if(pixel_value > max)
+                max = pixel_value;
+        }
+    }
+
+    return {min, max};
+}
+
+int compute_bimodal_threshold(edge_image_values img_values, int* histogram, float err){
+    int min, max;
+    float Tk, Tk_1;
+    float mean_1, mean_2, no_pixels_mean_1, no_pixels_mean_2;
+
+    min = img_values.min_value;
+    max = img_values.max_value;
+
+    Tk = (int)(min + max) /2;
+
+    do{
+        Tk_1 = Tk;
+
+        mean_1 = 0; no_pixels_mean_1 = 0;
+        mean_2 = 0; no_pixels_mean_2 = 0;
+
+        for(int i = min; i <= Tk; i++){
+            mean_1 += histogram[i] * i;
+            no_pixels_mean_1 += histogram[i];
+        }
+
+        for(int i = Tk + 1; i <= max; i++){
+            mean_2 += histogram[i] * i;
+            no_pixels_mean_2 += histogram[i];
+        }
+
+        if(no_pixels_mean_1 != 0)
+            mean_1 /= no_pixels_mean_1;
+
+        if(no_pixels_mean_2 != 0)
+            mean_2 /= no_pixels_mean_2;
+
+        Tk = (int)(mean_1 + mean_2) / 2;
+
+    }while(abs(Tk - Tk_1) > err);
+
+    return Tk;
+}
+
+Mat apply_bimodal_thresholding(Mat source, int th){
+    Mat dst;
+
+    dst = Mat(source.rows, source.cols, CV_8UC1, 255);
+
+    for(int i = 0; i < source.rows; i++){
+        for(int j = 0; j < source.cols; j++){
+            if(source.at<uchar>(i, j) <= th){
+                dst.at<uchar>(i, j) = 0;
+            }
+        }
+    }
+
+    return dst;
+}
+
+Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh){
+
+}

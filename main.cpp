@@ -22,20 +22,21 @@ int main() {
     //
     // cvtColor(source, gray, COLOR_BGR2GRAY);
 
-
-
     // 3. Aplicăm sharpening
-    Mat sharpened = convolution(gray, kernel);
+    Mat sharpened = convolution(gray, sharp);
     //filter2D(gray, sharpened, CV_8U, kernel);
 
     // 4. Aplicăm filtru median
-    Mat medianed;
-    medianBlur(sharpened, medianed, 3);
+    Mat medianed = convolution(sharpened, median3);
+    //medianBlur(sharpened, medianed, 3);
 
     // 5. Binarizare (threshold automatizat)
-    Mat binary;
-    double thresh_val = mean(medianed)[0];
-    threshold(medianed, binary, thresh_val, 255, THRESH_BINARY);
+    edge_image_values values_img = compute_edge_values(medianed);
+    int* histogram = compute_histogram_naive(medianed);
+    int th = compute_bimodal_threshold(values_img, histogram, 0.1);
+    Mat binary = apply_bimodal_thresholding(medianed, th);
+    // double thresh_val = mean(medianed)[0];
+    // threshold(medianed, binary, thresh_val, 255, THRESH_BINARY);
 
     // 6. Detecție margini (Canny)
     Mat edges;
@@ -60,13 +61,10 @@ int main() {
             // Check if there are any non-zero pixels in the blue_mask within the left region
             Mat leftROI = blue_mask(leftRegion);
             if (countNonZero(leftROI) > 0) {
-                rectangle(result, rect, Scalar(0, 255, 0), 2);
+                rectangle(result, rect, Scalar(0, 255, 0), 4);
             }
         }
     }
-
-    //output de test
-    // imwrite("images/output/result.jpg", result);
 
     // Afișare rezultate intermediare
     namedWindow("Original", WINDOW_NORMAL);
