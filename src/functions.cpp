@@ -218,97 +218,44 @@ Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh){
     return edges;
 }
 
-Point find_P_0(Mat source) {
-    Point P_0 = Point(-1, -1); // Initialize to default value
-    int rows = source.rows, cols = source.cols;
+vector<vector<Point>> extract_all_contours_from_edges(Mat binary) {
+    int rows = binary.rows;
+    int cols = binary.cols;
+    Mat visited = Mat(rows, cols, CV_8UC1, Scalar(0));
+    vector<vector<Point>> contours;
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            if (source.at<uchar>(i, j) == 0) {
-                P_0 = Point(j, i);
-                return P_0;
+    for (int y = 0; y < rows; ++y) {
+        for (int x = 0; x < cols; ++x) {
+            if (binary.at<uchar>(y, x) == 0 && visited.at<uchar>(y, x) == 0) {
+                vector<Point> contur;
+                queue<Point> q;
+                q.push(Point(x, y));
+                visited.at<uchar>(y, x) = 1;
+
+                while (!q.empty()) {
+                    Point p = q.front();
+                    q.pop();
+                    contur.push_back(p);
+
+                    for (int k = 0; k < 8; ++k) {
+                        int nx = p.x + dx[k];
+                        int ny = p.y + dy[k];
+
+                        if (nx >= 0 && nx < cols && ny >= 0 && ny < rows &&
+                            binary.at<uchar>(ny, nx) == 0 &&
+                            visited.at<uchar>(ny, nx) == 0) {
+                            q.push(Point(nx, ny));
+                            visited.at<uchar>(ny, nx) = 1;
+                            }
+                    }
+                }
+
+                if (contur.size() >= 5) {
+                    contours.push_back(contur);
+                }
             }
         }
     }
 
-    return P_0;
-}
-
-contour extract_contour(Mat source, Point P_0){
-
-    /*Extract the contour for a neighborhood of 8. You should return a contour structure with a vector
-     * containing the point and a vector containing the directions. */
-
-    int dir;
-    Point P_current;
-    vector<Point> border;
-    vector<int> dir_vector;
-
-    //*****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-    dir = 7;
-    border.push_back(P_0);
-    P_current = P_0;
-    do{
-        if(dir % 2 == 0){
-            dir = (dir + 7) % 8;
-        }
-        else{
-            dir = (dir + 6) % 8;
-        }
-
-        while(source.at<uchar>(P_current.y + n8_di[dir], P_current.x + n8_dj[dir]) == 255){
-            dir = (dir + 1) % 8;
-        }
-        dir_vector.push_back(dir);
-        P_current.x += n8_dj[dir];
-        P_current.y += n8_di[dir];
-        border.push_back(P_current);
-
-    } while (!((P_current == border[1]) && (border[border.size()-2] == P_0) && (border.size() > 2)));
-
-    //*****END OF YOUR CODE(DO NOT DELETE / MODIFY THIS LINE) *****
-
-    return {border, dir_vector};
-}
-
-vector<contour> extract_all_contours(Mat source) {
-    Mat copy = source.clone();
-    vector<contour> all_contours;
-
-    int rows = copy.rows;
-    int cols = copy.cols;
-
-    // Vizitați: reține care pixeli au fost procesați deja
-    Mat visited = Mat(rows, cols, CV_8UC1, Scalar(0)); // 0 = never visited
-
-    for (int i = 0; i < rows; ++i) {
-        for (int j = 0; j < cols; ++j) {
-            if (copy.at<uchar>(i, j) == 0 && visited.at<uchar>(i, j) == 0) {
-                Point P0(j, i);
-                contour c = extract_contour(copy, P0);
-
-                if (c.border.size() < 5) {
-                    if (IsInside(copy, P0.y, P0.x)) {
-                        visited.at<uchar>(P0.y, P0.x) = 1;
-                        copy.at<uchar>(P0.y, P0.x) = 255;
-                    }
-                    continue;
-                }
-
-                for (const Point& p : c.border) {
-                    if (IsInside(copy, p.y, p.x)) {
-                        visited.at<uchar>(p.y, p.x) = 1;
-                        copy.at<uchar>(p.y, p.x) = 255;
-                    }
-                }
-
-                all_contours.push_back(c);
-                cout << "Contur #" << all_contours.size() << " extras ("
-                     << c.border.size() << " puncte)\n";
-            }
-        }
-    }
-
-    return all_contours;
+    return contours;
 }
