@@ -217,3 +217,49 @@ Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh){
 
     return edges;
 }
+
+Point find_P_0(Mat source) {
+    Point P_0 = Point(-1, -1); // Initialize to default value
+    int rows = source.rows, cols = source.cols;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (source.at<uchar>(i, j) == 0) {
+                P_0 = Point(j, i);
+                return P_0;
+            }
+        }
+    }
+
+    return P_0;
+}
+
+contour extract_contour(Mat source, Point P_0) {
+    int dir;
+    Point P_current;
+    vector<Point> border;
+    vector<int> dir_vector;
+
+    dir = 7;
+    border.push_back(P_0);
+    P_current = P_0;
+    do {
+        if (dir % 2 == 0) {
+            dir = (dir + 7) % 8;
+        } else {
+            dir = (dir + 6) % 8;
+        }
+
+        while (IsInside(source, P_current.y + n8_di[dir], P_current.x + n8_dj[dir]) &&
+               source.at<uchar>(P_current.y + n8_di[dir], P_current.x + n8_dj[dir]) == 255) {
+            dir = (dir + 1) % 8;
+               }
+        dir_vector.push_back(dir);
+        P_current.x += n8_dj[dir];
+        P_current.y += n8_di[dir];
+        border.push_back(P_current);
+
+    } while (!((P_current == border[1]) && (border[border.size() - 2] == P_0) && (border.size() > 2)));
+
+    return {border, dir_vector};
+}

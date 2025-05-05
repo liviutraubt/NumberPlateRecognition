@@ -32,6 +32,14 @@ const float Gy[3][3] = {
     { 1,  2,  1}
 };
 
+const int n8_di[8] = {0,-1,-1, -1, 0, 1, 1, 1};
+const int n8_dj[8] = {1, 1, 0, -1, -1,-1, 0, 1};
+
+typedef struct{
+    vector<Point> border;
+    vector<int> dir_vector;
+} contour;
+
 bool IsInside(Mat img, int i, int j);
 Mat convertToGrayscale(Mat source);
 Mat extractBlueMask(Mat source);
@@ -41,5 +49,7 @@ int compute_bimodal_threshold(edge_image_values img_values, int* histogram, floa
 Mat apply_bimodal_thresholding(Mat source, int th);
 int* compute_histogram_naive(Mat source);
 Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh);
+Point find_P_0(Mat source);
+contour extract_contour(Mat source, Point P_0);
 
 #endif
