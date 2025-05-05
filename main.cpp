@@ -40,19 +40,18 @@ int main() {
         if (aspect > 4.0 && aspect < 5.2 && rect.area() > 3000) {
             Rect leftRegion(max(0, rect.x - rect.width), rect.y, rect.width, rect.height);
 
-            if (leftRegion.x >= 0 && leftRegion.y >= 0 &&
-                leftRegion.x + leftRegion.width <= blue_mask.cols &&
-                leftRegion.y + leftRegion.height <= blue_mask.rows) {
+            if (leftRegion.x >= 0 && leftRegion.y >= 0 && leftRegion.x + leftRegion.width <= blue_mask.cols && leftRegion.y + leftRegion.height <= blue_mask.rows) {
 
                 Mat leftROI = blue_mask(leftRegion);
                 if (countNonZero(leftROI) > 0) {
                     rectangle(result, rect, Scalar(0, 255, 0), 4);
                     cout << "Număr de înmatriculare posibil la: " << rect << endl;
                 }
-                }
+            }
         }
     }
 
+    imwrite("images/output/result.jpg", result);
 
     // Afisare rezultate intermediare
     namedWindow("Original", WINDOW_NORMAL);

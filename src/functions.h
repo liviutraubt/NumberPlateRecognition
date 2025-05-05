@@ -45,6 +45,6 @@ int compute_bimodal_threshold(edge_image_values img_values, int* histogram, floa
 Mat apply_bimodal_thresholding(Mat source, int th);
 int* compute_histogram_naive(Mat source);
 Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh);
-vector<vector<Point>> extract_all_contours_from_edges(Mat binary);
+vector<vector<Point>> extract_all_contours_from_edges(Mat source);
 
 #endif

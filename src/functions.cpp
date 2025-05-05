@@ -218,15 +218,15 @@ Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh){
     return edges;
 }
 
-vector<vector<Point>> extract_all_contours_from_edges(Mat binary) {
-    int rows = binary.rows;
-    int cols = binary.cols;
+vector<vector<Point>> extract_all_contours_from_edges(Mat source) {
+    int rows = source.rows;
+    int cols = source.cols;
     Mat visited = Mat(rows, cols, CV_8UC1, Scalar(0));
     vector<vector<Point>> contours;
 
     for (int y = 0; y < rows; ++y) {
         for (int x = 0; x < cols; ++x) {
-            if (binary.at<uchar>(y, x) == 0 && visited.at<uchar>(y, x) == 0) {
+            if (source.at<uchar>(y, x) == 0 && visited.at<uchar>(y, x) == 0) {
                 vector<Point> contur;
                 queue<Point> q;
                 q.push(Point(x, y));
@@ -241,16 +241,14 @@ vector<vector<Point>> extract_all_contours_from_edges(Mat binary) {
                         int nx = p.x + dx[k];
                         int ny = p.y + dy[k];
 
-                        if (nx >= 0 && nx < cols && ny >= 0 && ny < rows &&
-                            binary.at<uchar>(ny, nx) == 0 &&
-                            visited.at<uchar>(ny, nx) == 0) {
+                        if (IsInside(source, ny, nx) && source.at<uchar>(ny, nx) == 0 && visited.at<uchar>(ny, nx) == 0) {
                             q.push(Point(nx, ny));
                             visited.at<uchar>(ny, nx) = 1;
-                            }
+                        }
                     }
                 }
 
-                if (contur.size() >= 5) {
+                if (contur.size() >= 100) {
                     contours.push_back(contur);
                 }
             }
