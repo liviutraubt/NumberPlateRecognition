@@ -38,7 +38,7 @@ Mat extractBlueMask(Mat source){
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             Vec3b pixel = source.at<Vec3b>(i, j);
-            if (pixel[0] <= pixel[1] + 30 || pixel[0] <= pixel[2] + 30) {
+            if (pixel[0] <= pixel[1] + 50 || pixel[0] <= pixel[2] + 50) {
                 BlueMask.at<uchar>(i, j) = 0;
             }
         }
@@ -169,5 +169,51 @@ Mat apply_bimodal_thresholding(Mat source, int th){
 }
 
 Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh){
+    int rows = source.rows, cols = source.cols;
+    Mat gradient = Mat(rows, cols, CV_32FC1, Scalar(0));
+    Mat direction = Mat(rows, cols, CV_32FC1, Scalar(0));
+    Mat edges = Mat(rows, cols, CV_8UC1, Scalar(0));
 
+    for (int i = 1; i < rows - 1; i++) {
+        for (int j = 1; j < cols - 1; j++) {
+            float sumX = 0, sumY = 0;
+
+            for (int m = -1; m <= 1; m++) {
+                for (int n = -1; n <= 1; n++) {
+                    uchar pixel = source.at<uchar>(i + m, j + n);
+                    sumX += pixel * Gx[m + 1][n + 1];
+                    sumY += pixel * Gy[m + 1][n + 1];
+                }
+            }
+
+            float mag = sqrt(sumX * sumX + sumY * sumY);
+            float angle = atan2(sumY, sumX);
+
+            gradient.at<float>(i, j) = mag;
+            direction.at<float>(i, j) = angle;
+        }
+    }
+
+    for (int i = 1; i < rows - 1; i++) {
+        for (int j = 1; j < cols - 1; j++) {
+            float mag = gradient.at<float>(i, j);
+
+            if (mag >= highThresh) {
+                edges.at<uchar>(i, j) = 255;
+            } else if (mag >= lowThresh) {
+                bool connected = false;
+                for (int m = -1; m <= 1; m++) {
+                    for (int n = -1; n <= 1; n++) {
+                        if (gradient.at<float>(i + m, j + n) >= highThresh) {
+                            connected = true;
+                        }
+                    }
+                }
+                if (connected)
+                    edges.at<uchar>(i, j) = 255;
+            }
+        }
+    }
+
+    return edges;
 }

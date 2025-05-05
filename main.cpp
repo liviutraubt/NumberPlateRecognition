@@ -8,40 +8,25 @@ using namespace cv;
 int main() {
 
     // 1. Citim imaginea
-    Mat source = imread("images/test.jpeg");
+    Mat source = imread("images/image.jpeg");
 
     // 2. Convertim în grayscale și păstrăm o mască albastră pentru bara din stânga
     Mat gray = convertToGrayscale(source), blue_mask = extractBlueMask(source);
-    // vector<Mat> channels;
-    // split(source, channels);  // B, G, R
-    //
-    // // mască: albastru semnificativ mai intens decât celelalte
-    // Mat condition1 = channels[0] > channels[1] + 30;
-    // Mat condition2 = channels[0] > channels[2] + 30;
-    // bitwise_and(condition1, condition2, blue_mask);
-    //
-    // cvtColor(source, gray, COLOR_BGR2GRAY);
 
     // 3. Aplicăm sharpening
     Mat sharpened = convolution(gray, sharp);
-    //filter2D(gray, sharpened, CV_8U, kernel);
 
     // 4. Aplicăm filtru median
     Mat medianed = convolution(sharpened, median3);
-    //medianBlur(sharpened, medianed, 3);
 
     // 5. Binarizare (threshold automatizat)
     edge_image_values values_img = compute_edge_values(medianed);
     int* histogram = compute_histogram_naive(medianed);
     int th = compute_bimodal_threshold(values_img, histogram, 0.1);
     Mat binary = apply_bimodal_thresholding(medianed, th);
-    // double thresh_val = mean(medianed)[0];
-    // threshold(medianed, binary, thresh_val, 255, THRESH_BINARY);
 
     // 6. Detecție margini (Canny)
-    Mat edges;
-    int lowThresh = 50, highThresh = 150;
-    Canny(binary, edges, lowThresh, highThresh);
+    Mat edges = cannyEdgeDetection(binary, 50, 150);
 
     // 7. Contururi
     vector<vector<Point>> contours;

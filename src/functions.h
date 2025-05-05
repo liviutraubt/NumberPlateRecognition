@@ -20,6 +20,18 @@ typedef struct{
     int max_value;
 } edge_image_values;
 
+// Kerneluri Sobel
+const float Gx[3][3] = {
+    {-1, 0, 1},
+    {-2, 0, 2},
+    {-1, 0, 1}
+};
+const float Gy[3][3] = {
+    {-1, -2, -1},
+    { 0,  0,  0},
+    { 1,  2,  1}
+};
+
 bool IsInside(Mat img, int i, int j);
 Mat convertToGrayscale(Mat source);
 Mat extractBlueMask(Mat source);
