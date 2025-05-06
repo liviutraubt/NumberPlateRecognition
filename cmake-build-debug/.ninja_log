@@ -1,103 +1,52 @@
 # ninja log v6
-2	185	7665723232944249	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-194	209	7665723234993272	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	7aa8e02b12fd00fb
-194	209	7665723234993272	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	7aa8e02b12fd00fb
-2473	2691	7665723257655700	LicensePlateRecognition.exe	acde74a0a34906c2
-194	209	7665723234993272	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	7aa8e02b12fd00fb
-209	2473	7665723235013257	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-4	202	7682314094222940	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-6	204	7682314094242973	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-204	225	7682314096395002	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-204	225	7682314096395002	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-204	225	7682314096395002	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-204	225	7682314096395002	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-225	2836	7682314096435004	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-227	2878	7682314096445001	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-2878	3123	7682314122955087	LicensePlateRecognition.exe	664c1e7df33bace0
-5	213	7682315088285922	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-214	231	7682315090375175	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-214	231	7682315090375175	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-214	231	7682315090375175	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-214	231	7682315090375175	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-231	2475	7682315090546264	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-2475	2565	7682315112993887	LicensePlateRecognition.exe	664c1e7df33bace0
-25	414	7682321608176556	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-22	415	7682321608146507	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-415	434	7682321612076354	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-415	434	7682321612076354	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-415	434	7682321612076354	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-415	434	7682321612076354	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-434	3091	7682321612266362	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-435	3102	7682321612286374	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-3102	3294	7682321638942723	LicensePlateRecognition.exe	664c1e7df33bace0
-4	211	7682325997512807	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-7	214	7682325997542812	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-214	231	7682325999613298	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-214	231	7682325999613298	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-214	231	7682325999613298	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-214	231	7682325999613298	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-231	3355	7682325999773333	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-232	3367	7682325999793361	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-3367	3500	7682326031134528	LicensePlateRecognition.exe	664c1e7df33bace0
-8	247	7682326675146388	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-5	258	7682326675116382	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-258	277	7682326677653569	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-258	277	7682326677653569	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-258	277	7682326677653569	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-258	277	7682326677653569	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-277	2766	7682326677838711	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-279	2809	7682326677848722	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-2809	2954	7682326703158942	LicensePlateRecognition.exe	664c1e7df33bace0
-4	182	7682330952038388	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-182	197	7682330953826366	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-182	197	7682330953826366	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-182	197	7682330953826366	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-182	197	7682330953826366	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-197	2487	7682330953977130	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-2488	2609	7682330976877292	LicensePlateRecognition.exe	664c1e7df33bace0
-4	180	7682331838007398	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-6	182	7682331838027445	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-182	197	7682331839787923	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-182	197	7682331839787923	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-182	197	7682331839787923	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-182	197	7682331839787923	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-197	2768	7682331839937917	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-198	2835	7682331839947908	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-2835	2999	7682331866310570	LicensePlateRecognition.exe	664c1e7df33bace0
-4	189	7682337779786732	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-7	191	7682337779816727	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-191	205	7682337781656119	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-191	205	7682337781656119	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-191	205	7682337781656119	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-191	205	7682337781656119	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-206	2527	7682337781806132	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-207	2588	7682337781816129	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-2588	2718	7682337805631961	LicensePlateRecognition.exe	664c1e7df33bace0
-4	181	7682338215233597	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-182	196	7682338217015009	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-182	196	7682338217015009	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-182	196	7682338217015009	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-182	196	7682338217015009	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-196	2521	7682338217155029	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-2521	2648	7682338240407097	LicensePlateRecognition.exe	664c1e7df33bace0
-4	180	7682339499254381	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
-181	195	7682339501017895	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-181	195	7682339501017895	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-181	195	7682339501017895	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-181	195	7682339501017895	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-195	2654	7682339501167900	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
-2654	2775	7682339525750953	LicensePlateRecognition.exe	664c1e7df33bace0
-3	200	7682339822968186	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-200	215	7682339824933269	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
-200	215	7682339824933269	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-200	215	7682339824933269	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-200	215	7682339824933269	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-215	2792	7682339825093293	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
-2792	2946	7682339850854498	LicensePlateRecognition.exe	664c1e7df33bace0
 4	194	7682340929893035	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
-195	210	7682340931804170	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
 195	210	7682340931804170	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
-195	210	7682340931804170	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
-195	210	7682340931804170	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
-210	2642	7682340931954165	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+195	210	7682340931804170	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
 2642	2794	7682340956280987	LicensePlateRecognition.exe	664c1e7df33bace0
+195	210	7682340931804170	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+210	2642	7682340931954165	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+4	180	7682339499254381	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
+195	210	7682340931804170	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+195	2654	7682339501167900	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	428cddb1915515b8
+8	421	7682385153621997	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+422	455	7682385157764285	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
+422	455	7682385157764285	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
+422	455	7682385157764285	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+422	455	7682385157764285	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+456	6467	7682385158105492	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+6467	6754	7682385218212368	LicensePlateRecognition.exe	664c1e7df33bace0
+18	1003	7682406602134843	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+1004	1061	7682406612000346	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
+1004	1061	7682406612000346	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
+1004	1061	7682406612000346	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+1004	1061	7682406612000346	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+1062	6921	7682406612575754	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+6921	7310	7682406671167828	LicensePlateRecognition.exe	664c1e7df33bace0
+6	544	7682409605438227	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+545	603	7682409610826590	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
+545	603	7682409610826590	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
+545	603	7682409610826590	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+545	603	7682409610826590	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+603	6097	7682409611413412	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+6097	6366	7682409666347318	LicensePlateRecognition.exe	664c1e7df33bace0
+8	448	7682411168002699	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+449	483	7682411172410578	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
+449	483	7682411172410578	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
+449	483	7682411172410578	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+449	483	7682411172410578	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+483	5812	7682411172752371	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+5813	6082	7682411226051600	LicensePlateRecognition.exe	664c1e7df33bace0
+5	490	7682412872052218	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+491	525	7682412876982070	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
+491	525	7682412876982070	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
+491	525	7682412876982070	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+491	525	7682412876982070	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+525	6264	7682412877324084	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+6264	6534	7682412934708409	LicensePlateRecognition.exe	664c1e7df33bace0
+6	426	7682413739881936	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	8689b9e73eac1b42
+426	462	7682413744085204	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	d7a7356aa124f2da
+426	462	7682413744085204	D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	d7a7356aa124f2da
+426	462	7682413744085204	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	d7a7356aa124f2da
+426	462	7682413744085204	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+462	6345	7682413744440206	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
+6345	6608	7682413803265268	LicensePlateRecognition.exe	664c1e7df33bace0
