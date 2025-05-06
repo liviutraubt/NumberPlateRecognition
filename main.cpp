@@ -13,7 +13,7 @@ int main() {
     // 2. Convertim in grayscale si pastram o masca albastra pentru bara din stanga
     Mat gray = convertToGrayscale(source), blue_mask = extractBlueMask(source);
 
-    // 3. Aplicam sharpening
+    // 3. Aplicam blur gaussian
     Mat sharpened = convolution(gray, sharp);
 
     // 4. Aplicam filtru median
