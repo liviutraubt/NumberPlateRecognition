@@ -28,16 +28,17 @@ int main() {
     // 6. Detectie margini (Canny)
     Mat edges = cannyEdgeDetection(binary, 50, 150);
 
-    // 7. Contururi
-    vector<vector<Point>> contours = extract_all_contours_from_edges(edges);
+    // 7. Lista obiecte conexe
+    vector<vector<Point>> objects = extract_all_objects(edges);
 
     // 8. Detectare placuțe dupa aspect ratio si dimensiune
     Mat result = source.clone();
-    for (const auto& contour : contours) {
-        Rect rect = boundingRect(contour);
+    Mat plate;
+    for (const auto& object : objects) {
+        Rect rect = compute_bounding_box(object);
         double aspect = (double)rect.width / rect.height;
 
-        if (aspect > 4.0 && aspect < 5.2 && rect.area() > 3000) {
+        if (aspect > 4.0 && aspect < 5.2 && compute_area(rect) > 3000) {
             Rect leftRegion(max(0, rect.x - rect.width), rect.y, rect.width, rect.height);
 
             if (leftRegion.x >= 0 && leftRegion.y >= 0 && leftRegion.x + leftRegion.width <= blue_mask.cols && leftRegion.y + leftRegion.height <= blue_mask.rows) {
@@ -45,7 +46,8 @@ int main() {
                 Mat leftROI = blue_mask(leftRegion);
                 if (countNonZero(leftROI) > 0) {
                     rectangle(result, rect, Scalar(0, 255, 0), 4);
-                    cout << "Număr de înmatriculare posibil la: " << rect << endl;
+
+                    plate = extract_license_plate(source, rect);
                 }
             }
         }
@@ -78,9 +80,13 @@ int main() {
     resizeWindow("Edges", 600, 400);
     imshow("Edges", edges);
 
-    namedWindow("Detected Plates", WINDOW_NORMAL);
-    resizeWindow("Detected Plates", 600, 400);
-    imshow("Detected Plates", result);
+    namedWindow("Detected Plate", WINDOW_NORMAL);
+    resizeWindow("Detected Plate", 600, 400);
+    imshow("Detected Plate", plate);
+
+    namedWindow("Framed Plate", WINDOW_NORMAL);
+    resizeWindow("Framed Plate", 600, 400);
+    imshow("Framed Plate", result);
 
     waitKey(0);
     return 0;

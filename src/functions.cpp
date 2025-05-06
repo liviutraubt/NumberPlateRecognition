@@ -9,8 +9,9 @@ bool IsInside(Mat img, int i, int j){
     rows = img.rows;
     cols = img.cols;
 
-    if(i >= 0 && i < rows && j >= 0 && j < cols)
+    if(i >= 0 && i < rows && j >= 0 && j < cols){
         return true;
+    }
 
     return false;
 }
@@ -218,16 +219,16 @@ Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh){
     return edges;
 }
 
-vector<vector<Point>> extract_all_contours_from_edges(Mat source) {
+vector<vector<Point>> extract_all_objects(Mat source) {
     int rows = source.rows;
     int cols = source.cols;
     Mat visited = Mat(rows, cols, CV_8UC1, Scalar(0));
-    vector<vector<Point>> contours;
+    vector<vector<Point>> objects;
 
     for (int y = 0; y < rows; ++y) {
         for (int x = 0; x < cols; ++x) {
             if (source.at<uchar>(y, x) == 0 && visited.at<uchar>(y, x) == 0) {
-                vector<Point> contur;
+                vector<Point> object;
                 queue<Point> q;
                 q.push(Point(x, y));
                 visited.at<uchar>(y, x) = 1;
@@ -235,7 +236,7 @@ vector<vector<Point>> extract_all_contours_from_edges(Mat source) {
                 while (!q.empty()) {
                     Point p = q.front();
                     q.pop();
-                    contur.push_back(p);
+                    object.push_back(p);
 
                     for (int k = 0; k < 8; ++k) {
                         int nx = p.x + dx[k];
@@ -248,12 +249,49 @@ vector<vector<Point>> extract_all_contours_from_edges(Mat source) {
                     }
                 }
 
-                if (contur.size() >= 100) {
-                    contours.push_back(contur);
+                if (object.size() >= 100) {
+                    objects.push_back(object);
                 }
             }
         }
     }
 
-    return contours;
+    return objects;
 }
+
+Rect compute_bounding_box(const vector<Point>& object) {
+    if (object.empty()) return Rect();
+
+    int minX = object[0].x;
+    int maxX = object[0].x;
+    int minY = object[0].y;
+    int maxY = object[0].y;
+
+    for (const Point& p : object) {
+        if (p.x < minX) minX = p.x;
+        if (p.x > maxX) maxX = p.x;
+        if (p.y < minY) minY = p.y;
+        if (p.y > maxY) maxY = p.y;
+    }
+
+    int width = maxX - minX + 1;
+    int height = maxY - minY + 1;
+
+    return Rect(minX, minY, width, height);
+}
+
+int compute_area(Rect rect){
+    return rect.height * rect.width;
+}
+
+Mat extract_license_plate(Mat source, Rect rect){
+        Mat result = Mat(rect.height, rect.width, CV_8UC3);
+
+        for(int i = 0; i < rect.height; i++){
+            for(int j = 0; j < rect.width; j++){
+                result.at<Vec3b>(i, j) = source.at<Vec3b>(rect.y + i, rect.x + j);
+            }
+        }
+
+        return result;
+    }
