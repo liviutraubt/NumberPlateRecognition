@@ -259,7 +259,7 @@ vector<vector<Point>> extract_all_objects(Mat source) {
     return objects;
 }
 
-Rect compute_bounding_box(const vector<Point>& object) {
+Rect compute_bounding_box(vector<Point> object) {
     if (object.empty()) return Rect();
 
     int minX = object[0].x;

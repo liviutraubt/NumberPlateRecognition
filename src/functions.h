@@ -46,7 +46,7 @@ Mat apply_bimodal_thresholding(Mat source, int th);
 int* compute_histogram_naive(Mat source);
 Mat cannyEdgeDetection(Mat source, int lowThresh, int highThresh);
 vector<vector<Point>> extract_all_objects(Mat source);
-Rect compute_bounding_box(const vector<Point>& object);
+Rect compute_bounding_box(vector<Point> object);
 int compute_area(Rect rect);
 Mat extract_license_plate(Mat source, Rect rect);
 
