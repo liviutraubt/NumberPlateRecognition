@@ -8,7 +8,7 @@ using namespace cv;
 int main() {
 
     // 1. Citim imaginea
-    Mat source = imread("images/image.jpeg");
+    Mat source = imread("images/image3.jpeg");
 
     // 2. Convertim in grayscale si pastram o masca albastra pentru bara din stanga
     Mat gray = convertToGrayscale(source), blue_mask = extractBlueMask(source);
