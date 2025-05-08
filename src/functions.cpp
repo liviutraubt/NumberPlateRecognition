@@ -48,7 +48,7 @@ Mat extractBlueMask(Mat source){
     return BlueMask;
 }
 
-Mat convolution(Mat source, Mat kernel){
+Mat median_filter(Mat source, Mat kernel){
     int rows = source.rows, cols = source.cols;
     int kernel_rows = kernel.rows, kernel_cols = kernel.cols;
     int kernel_center_x = kernel_cols / 2;
@@ -249,7 +249,7 @@ vector<vector<Point>> extract_all_objects(Mat source) {
                     }
                 }
 
-                if (object.size() >= 100) {
+                if (object.size() >= 400) {
                     objects.push_back(object);
                 }
             }
@@ -260,8 +260,6 @@ vector<vector<Point>> extract_all_objects(Mat source) {
 }
 
 Rect compute_bounding_box(vector<Point> object) {
-    if (object.empty()) return Rect();
-
     int minX = object[0].x;
     int maxX = object[0].x;
     int minY = object[0].y;
@@ -277,7 +275,7 @@ Rect compute_bounding_box(vector<Point> object) {
     int width = maxX - minX + 1;
     int height = maxY - minY + 1;
 
-    return Rect(minX, minY, width, height);
+    return {minX, minY, width, height};
 }
 
 int compute_area(Rect rect){
@@ -294,4 +292,32 @@ Mat extract_license_plate(Mat source, Rect rect){
         }
 
         return result;
+}
+
+Mat gaussian_blur_filter(Mat source){
+    float kernel[5][5] = {
+            { 1,  4,  6,  4, 1 },
+            { 4, 16, 24, 16, 4 },
+            { 6, 24, 36, 24, 6 },
+            { 4, 16, 24, 16, 4 },
+            { 1,  4,  6,  4, 1 }
+    };
+
+    int rows = source.rows, cols = source.cols;
+    Mat result = Mat(rows, cols, CV_8UC1);
+
+    for (int y = 2; y < rows - 2; ++y) {
+        for (int x = 2; x < cols - 2; ++x) {
+            double sum = 0.0;
+
+            for (int i = -2; i <= 2; ++i) {
+                for (int j = -2; j <= 2; ++j) {
+                    sum += kernel[i + 2][j + 2] * source.at<uchar>(y + i, x + j);
+                }
+            }
+
+            result.at<uchar>(y, x) = (uchar)(sum / 256.0);
+        }
     }
+    return result;
+}

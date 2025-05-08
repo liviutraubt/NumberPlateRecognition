@@ -14,10 +14,10 @@ int main() {
     Mat gray = convertToGrayscale(source), blue_mask = extractBlueMask(source);
 
     // 3. Aplicam blur gaussian
-    Mat sharpened = convolution(gray, sharp);
+    Mat blurred = gaussian_blur_filter(gray);
 
     // 4. Aplicam filtru median
-    Mat medianed = convolution(sharpened, median3);
+    Mat medianed = median_filter(blurred, median3);
 
     // 5. Binarizare (threshold automatizat)
     edge_image_values values_img = compute_edge_values(medianed);
@@ -55,7 +55,7 @@ int main() {
 
     imwrite("images/output/result.jpg", result);
 
-    // Afisare rezultate intermediare
+    //Afisare rezultate intermediare
     namedWindow("Original", WINDOW_NORMAL);
     resizeWindow("Original", 600, 400);
     imshow("Original", source);
@@ -64,9 +64,9 @@ int main() {
     resizeWindow("Blue Mask", 600, 400);
     imshow("Blue Mask", blue_mask);
 
-    namedWindow("Sharpened", WINDOW_NORMAL);
-    resizeWindow("Sharpened", 600, 400);
-    imshow("Sharpened", sharpened);
+    namedWindow("Blurred", WINDOW_NORMAL);
+    resizeWindow("Blurred", 600, 400);
+    imshow("Blurred", blurred);
 
     namedWindow("Medianed", WINDOW_NORMAL);
     resizeWindow("Medianed", 600, 400);
