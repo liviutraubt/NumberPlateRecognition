@@ -10,6 +10,8 @@ add_executable(LicensePlateRecognition
         main.cpp
         src/functions.cpp
         src/functions.h
+        testing/testing.cpp
+        testing/testing.h
 )
 
 target_link_libraries(LicensePlateRecognition ${OpenCV_LIBS})

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "src/functions.h"
+#include "testing/testing.h"
 #include <opencv2/opencv.hpp>
 
 using namespace std;
