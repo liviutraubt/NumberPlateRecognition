@@ -6,10 +6,12 @@
 using namespace std;
 using namespace cv;
 
+String path = "images/image3.jpeg";
+
 int main() {
 
     // 1. Citim imaginea
-    Mat source = imread("images/image3.jpeg");
+    Mat source = imread(path);
 
     // 2. Convertim in grayscale si pastram o masca albastra pentru bara din stanga
     Mat gray = convertToGrayscale(source), blue_mask = extractBlueMask(source);
@@ -32,9 +34,15 @@ int main() {
     // 7. Lista obiecte conexe
     vector<vector<Point>> objects = extract_all_objects(edges);
 
+    // 8. Trasare manuala pentru ground truth
+    draw_ground_truth(path, "testing/ground_truth.txt");
+
     // 8. Detectare placuțe dupa aspect ratio si dimensiune
     Mat result = source.clone();
     Mat plate;
+    //pt testing
+    vector<Rect> detections;
+    //pana aici
     for (const auto& object : objects) {
         Rect rect = compute_bounding_box(object);
         double aspect = (double)rect.width / rect.height;
@@ -46,6 +54,9 @@ int main() {
 
                 Mat leftROI = blue_mask(leftRegion);
                 if (countNonZero(leftROI) > 0) {
+                    //pt testing
+                    detections.push_back(rect);
+                    //pana aici
                     rectangle(result, rect, Scalar(0, 255, 0), 4);
 
                     plate = extract_license_plate(source, rect);
@@ -55,6 +66,11 @@ int main() {
     }
 
     imwrite("images/output/result.jpg", result);
+
+    //pt testing
+    vector<Rect> groundTruths = read_ground_truth("testing/ground_truth.txt");
+    evaluate_detections(detections, groundTruths);
+    //pana aici
 
     //Afisare rezultate intermediare
     namedWindow("Original", WINDOW_NORMAL);

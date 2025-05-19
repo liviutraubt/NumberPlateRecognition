@@ -7,3 +7,23 @@
 3	195	7683885676563632	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	36ea3b7286f0903c
 245	2611	7683885422003068	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	621ef82982afac15
 195	212	7683885678485795	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	d7a7356aa124f2da
+25	288	7693677385054014	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.ddi	f4029d31a79e4d1b
+18	290	7693677384984088	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	4c2804e3f704881f
+31	303	7693677385104123	CMakeFiles/LicensePlateRecognition.dir/testing/testing.cpp.obj.ddi	3c983cab3f94113c
+303	363	7693677388380423	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	dccf36f053b699e3
+303	363	7693677388380423	C:/Users/liviu/Documents/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	dccf36f053b699e3
+303	363	7693677388380423	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	dccf36f053b699e3
+303	363	7693677388380423	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	dccf36f053b699e3
+303	363	7693677388380423	CMakeFiles/LicensePlateRecognition.dir/testing/testing.cpp.obj.modmap	dccf36f053b699e3
+364	3430	7693677388444292	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	d4cf9bac84437c4c
+371	3458	7693677388504262	CMakeFiles/LicensePlateRecognition.dir/testing/testing.cpp.obj	feacc3b8bc51c73d
+368	3476	7693677388474319	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj	7e6c7ff7fab0e3e0
+3476	3922	7693677419554523	LicensePlateRecognition.exe	12eab8cac869af9e
+21	402	7693678489827876	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.ddi	4c2804e3f704881f
+403	455	7693678493645135	CMakeFiles/LicensePlateRecognition.dir/CXX.dd	dccf36f053b699e3
+403	455	7693678493645135	C:/Users/liviu/Documents/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug/CMakeFiles/LicensePlateRecognition.dir/CXXModules.json	dccf36f053b699e3
+403	455	7693678493645135	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj.modmap	dccf36f053b699e3
+403	455	7693678493645135	CMakeFiles/LicensePlateRecognition.dir/src/functions.cpp.obj.modmap	dccf36f053b699e3
+403	455	7693678493645135	CMakeFiles/LicensePlateRecognition.dir/testing/testing.cpp.obj.modmap	dccf36f053b699e3
+458	3790	7693678494197911	CMakeFiles/LicensePlateRecognition.dir/main.cpp.obj	d4cf9bac84437c4c
+3790	4101	7693678527517434	LicensePlateRecognition.exe	12eab8cac869af9e
