@@ -6,7 +6,7 @@
 using namespace std;
 using namespace cv;
 
-String path = "images/image3.jpeg";
+String path = "images/image2cars2.jpg";
 
 int main() {
 
@@ -34,12 +34,12 @@ int main() {
     // 7. Lista obiecte conexe
     vector<vector<Point>> objects = extract_all_objects(edges);
 
-    // 8. Trasare manuala pentru ground truth
+    // 8.1 Trasare manuala pentru ground truth
     draw_ground_truth(path, "testing/ground_truth.txt");
 
-    // 8. Detectare placuțe dupa aspect ratio si dimensiune
+    // 8.2 Detectare placuțe dupa aspect ratio si dimensiune
     Mat result = source.clone();
-    Mat plate;
+    Mat plate = source.clone();
     //pt testing
     vector<Rect> detections;
     //pana aici
@@ -68,8 +68,10 @@ int main() {
     imwrite("images/output/result.jpg", result);
 
     //pt testing
-    vector<Rect> groundTruths = read_ground_truth("testing/ground_truth.txt");
-    evaluate_detections(detections, groundTruths);
+     vector<Rect> groundTruths = read_ground_truth("testing/ground_truth.txt");
+     if (!(detections.empty())) {
+         evaluate_detections(detections, groundTruths);
+     }
     //pana aici
 
     //Afisare rezultate intermediare
