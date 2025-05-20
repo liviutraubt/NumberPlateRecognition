@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S "D:\UTCN\An 3\Sem 2\PI\Proiect\LicensePlateRecognition" -B "D:\UTCN\An 3\Sem 2\PI\Proiect\LicensePlateRecognition\cmake-build-debug"
+"C:\Program Files\JetBrains\CLion 2025.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2025.1.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S "C:\Users\liviu\Documents\UTCN\An 3\Sem 2\PI\Proiect\LicensePlateRecognition" -B "C:\Users\liviu\Documents\UTCN\An 3\Sem 2\PI\Proiect\LicensePlateRecognition\cmake-build-debug"
 -- OpenCV ARCH: x64
 -- OpenCV RUNTIME: vc16
 -- OpenCV STATIC: OFF
@@ -6,4 +6,4 @@
 -- You might need to add C:\opencv\build\x64\vc16\bin to your PATH to be able to run your applications.
 -- Configuring done (0.1s)
 -- Generating done (0.1s)
--- Build files have been written to: D:/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug
+-- Build files have been written to: C:/Users/liviu/Documents/UTCN/An 3/Sem 2/PI/Proiect/LicensePlateRecognition/cmake-build-debug
